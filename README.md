@@ -1,7 +1,16 @@
 docker-gradle-plugin
 ====================
 
-## Reason
-Ease the dockerfile execution
+## Example
+```
+plugins {
+  id "com.gmaslowski.gradle.plugin.docker" version "0.1"
+}
 
-## Gradle plugin
+docker {
+    workingDir = "$buildDir/docker"
+    tag = "group/name:version"
+    dockerfile = "$projectDir/src/main/docker/Dockerfile"
+    files = ["jarfile.jar", "otherneededfile"]
+}
+```
