@@ -2,7 +2,7 @@ docker-gradle-plugin
 ====================
 
 ## Example
-```
+```gradle
 buildscript {
   repositories {
     maven {
