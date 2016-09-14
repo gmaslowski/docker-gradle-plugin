@@ -3,9 +3,18 @@ docker-gradle-plugin
 
 ## Example
 ```
-plugins {
-  id "com.gmaslowski.gradle.plugin.docker" version "0.1"
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "gradle.plugin.com.gmaslowski.gradle.plugin.docker:docker-gradle-plugin:0.1"
+  }
 }
+
+apply plugin: "com.gmaslowski.gradle.plugin.docker"
 
 docker {
     workingDir = "$buildDir/docker"
