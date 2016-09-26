@@ -22,7 +22,12 @@ class DockerGradlePlugin implements Plugin<Project> {
 
             project.exec {
                 workingDir project.docker.workingDir
-                commandLine 'docker', 'build', '--pull=true', '-t', project.docker.tag, project.docker.workingDir
+
+                def arguments = ['docker', 'build', '--pull=true']
+                project.docker.tags.each { arguments.addAll(["-t", it])}
+                arguments.add(project.docker.workingDir)
+
+                commandLine arguments
             }
         }
     }
@@ -30,7 +35,7 @@ class DockerGradlePlugin implements Plugin<Project> {
 
 class DockerGradlePluginExtension {
     String workingDir
-    String tag
+    String[] tags
     String dockerfile
     String[] files
 }

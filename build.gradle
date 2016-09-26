@@ -17,7 +17,7 @@ dependencies {
     compile localGroovy()
 }
 
-version = "0.1"
+version = "0.2"
 group = "com.gmaslowski.gradle.plugin.docker"
 
 pluginBundle {
@@ -36,5 +36,5 @@ pluginBundle {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.0'
+    gradleVersion = '3.1'
 }
