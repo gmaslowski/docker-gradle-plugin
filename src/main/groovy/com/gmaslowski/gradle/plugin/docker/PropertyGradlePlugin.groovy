@@ -8,7 +8,7 @@ class DockerGradlePlugin implements Plugin<Project> {
 
         project.extensions.create("docker", DockerGradlePluginExtension)
 
-        project.task('buildDocker') << {
+        project.task('buildDocker').doLast {
             project.docker.files.each { file ->
                 project.copy {
                     from file
